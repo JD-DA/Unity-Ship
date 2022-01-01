@@ -14,7 +14,7 @@ public class posShip : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-		// calcul des angles avec conversion du minde de la camera au monde du pixel pour 
+		// calcul des angles avec conversion du monde de la camera au monde du pixel pour 
 		leftBottomCameraBorder = Camera.main.ViewportToWorldPoint(new Vector3 (0,0,0));
 		rightBottomCameraBorder = Camera.main.ViewportToWorldPoint(new Vector3 (1,0,0));
 		leftTopCameraBorder = Camera.main.ViewportToWorldPoint(new Vector3 (0,1,0));
@@ -46,5 +46,11 @@ public class posShip : MonoBehaviour
 		if(transform.position.x> rightTopCameraBorder.x - (siz.x/2))
 			gameObject.transform.position=new Vector3 (rightBottomCameraBorder.x-(siz.x /2),transform.position.y,transform.position.z);
 		
+	}
+	
+	void OnTriggerEnter2D(Collider2D collider){
+		if(collider.name=="asteroid"){
+			Debug.Log(collider.name);
+		}
 	}
 }

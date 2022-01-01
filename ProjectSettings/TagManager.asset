@@ -3,7 +3,13 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - life1
+  - life2
+  - life3
+  - life4
+  - scoreLabel
+  - asteroid
   layers:
   - Default
   - TransparentFX
