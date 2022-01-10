@@ -23,9 +23,13 @@ public class asteroidCreation : MonoBehaviour
 			siz.x = respaws[0].GetComponent<SpriteRenderer>().bounds.size.x;
 			siz.y = respaws[0].GetComponent<SpriteRenderer>().bounds.size.y;
 			if(respaws.Length<6){
-				if(Random.Range(1,100)==50||respaws.Length<4){
+				if(Random.Range(1,500)==50||respaws.Length<4){
 					var mov = new Vector3 (rightTopCameraBorder.x+(siz.x /2),Random.Range(leftBottomCameraBorder.y,rightTopCameraBorder.y),0);
-					GameObject gY	=	Instantiate(Resources.Load("asteroid"), mov	,Quaternion.identity) as	GameObject;
+					
+					string name = "asteroid";
+					name += Random.Range(1, 5).ToString();
+					//Debug.Log(name);
+					GameObject pgo = GameObject.Instantiate(Resources.Load(name), mov, Quaternion.identity) as GameObject;
 				}
 			}
 		}

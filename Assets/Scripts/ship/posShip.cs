@@ -50,7 +50,7 @@ public class posShip : MonoBehaviour
 	
 	void OnTriggerEnter2D(Collider2D collider){
 		if(collider.name=="asteroid"){
-			Debug.Log(collider.name);
+			//Debug.Log(collider.name);
 		}
 	}
 }

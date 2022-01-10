@@ -10,6 +10,7 @@ TagManager:
   - life4
   - scoreLabel
   - asteroid
+  - lastBackground
   layers:
   - Default
   - TransparentFX

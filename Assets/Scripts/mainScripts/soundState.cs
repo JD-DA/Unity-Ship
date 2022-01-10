@@ -9,19 +9,19 @@ public class soundState : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+	    if(Instance == null){
+		    Instance = this;
+		    DontDestroyOnLoad(Instance.gameObject);
+	    }else if (this != Instance){
+		    //Debug.Log("Detruit");
+		    Destroy(this.gameObject);
+	    }
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(Instance == null){
-			Instance = this;
-			DontDestroyOnLoad(Instance.gameObject);
-		}else if (this != Instance){
-			Debug.Log("Detruit");
-			Destroy(this.gameObject);
-		}
+        
     }
 	public void touchButtonSound(){
 		MakeSound(playerShotSound);

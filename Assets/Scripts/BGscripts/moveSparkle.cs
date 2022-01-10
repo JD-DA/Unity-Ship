@@ -2,12 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class moveShoot : MonoBehaviour
+public class moveSparkle : MonoBehaviour
 {
-    // verifier que classe = nom du fichier
-	// 1 la vitesse de deplacement
-	public Vector2 speed;
-	
+
 	// 2  Stockage du mouvement (float,float) xy
 	private Vector2 movement;
 	
@@ -23,8 +20,8 @@ public class moveShoot : MonoBehaviour
 		rightTopCameraBorder = Camera.main.ViewportToWorldPoint(new Vector3 (1,1,0));
 		
 		movement = new Vector2(
-		speed.x ,
-		speed.y );
+		-2 ,
+		0 );
 		
 		GetComponent<Rigidbody2D> ().velocity = movement;
         
@@ -45,9 +42,4 @@ public class moveShoot : MonoBehaviour
 					
     }
 	
-	void OnTriggerEnter2D(Collider2D collider){
-			collider.gameObject.AddComponent<fadeOutFast>();
-			gameState.Instance.addScorePlayer(1);
-			Destroy(gameObject);
-	}
 }
