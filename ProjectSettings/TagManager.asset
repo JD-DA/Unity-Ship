@@ -11,6 +11,9 @@ TagManager:
   - scoreLabel
   - asteroid
   - lastBackground
+  - playButton
+  - pauseButton
+  - pauseMenu
   layers:
   - Default
   - TransparentFX
