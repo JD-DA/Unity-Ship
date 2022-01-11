@@ -19,19 +19,16 @@ public class asteroidCreation : MonoBehaviour
     void Update()
     {
         var respaws = GameObject.FindGameObjectsWithTag("asteroid");
-		if(respaws.Length >0){
-			siz.x = respaws[0].GetComponent<SpriteRenderer>().bounds.size.x;
-			siz.y = respaws[0].GetComponent<SpriteRenderer>().bounds.size.y;
+		
 			if(respaws.Length<6){
 				if(Random.Range(1,500)==50||respaws.Length<4){
-					var mov = new Vector3 (rightTopCameraBorder.x+(siz.x /2),Random.Range(leftBottomCameraBorder.y,rightTopCameraBorder.y),0);
+					var mov = new Vector3 (rightTopCameraBorder.x+(rightTopCameraBorder.x /2),Random.Range(leftBottomCameraBorder.y,rightTopCameraBorder.y),0);
 					
 					string name = "asteroid";
-					name += Random.Range(1, 5).ToString();
+					name += Random.Range(1, 13).ToString();
 					//Debug.Log(name);
 					GameObject pgo = GameObject.Instantiate(Resources.Load(name), mov, Quaternion.identity) as GameObject;
 				}
 			}
-		}
     }
 }

@@ -32,12 +32,12 @@ public class asteroidBehaviour : MonoBehaviour
     }
 
     void OnTriggerEnter2D(Collider2D collider){
-        Debug.Log(collider.name);
+        //Debug.Log(collider.name);
+        Vector3 tmpPos = new Vector3(transform.position.x,
+            transform.position.y,
+            transform.position.z);
         if (collider.name == "shoot_Orange(Clone)")
         {
-            Vector3 tmpPos = new Vector3(transform.position.x,
-                transform.position.y,
-                transform.position.z);
             gameObject.AddComponent<fadeOutFast>();
             GameObject gY = Instantiate(Resources.Load("explosion"), tmpPos, Quaternion.identity) as GameObject;
             gameState.Instance.addScorePlayer(score);
@@ -53,6 +53,19 @@ public class asteroidBehaviour : MonoBehaviour
                     Destroy(gameObject);
                 }
             }
+        }
+        
+        if(collider.name=="myShip"){
+            gameObject.AddComponent<fadeOutFast>();
+            GameObject gY = Instantiate(Resources.Load("explosion"), tmpPos, Quaternion.identity) as GameObject;
+            if(GameObject.FindGameObjectWithTag("life4"))
+                GameObject.FindGameObjectWithTag("life4").AddComponent<fadeOut>();
+            else if(GameObject.FindGameObjectWithTag("life3"))
+                GameObject.FindGameObjectWithTag("life3").AddComponent<fadeOut>();
+            else if(GameObject.FindGameObjectWithTag("life2"))
+                GameObject.FindGameObjectWithTag("life2").AddComponent<fadeOut>();
+            else if(GameObject.FindGameObjectWithTag("life1"))
+                GameObject.FindGameObjectWithTag("life1").AddComponent<fadeOut>();
         }
     }
     

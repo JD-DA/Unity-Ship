@@ -43,23 +43,4 @@ public class moveAsteroid : MonoBehaviour
 		}
         
     }
-	public void OnDestroy()
-    {
-					
-    }
-	
-	void OnTriggerEnter2D(Collider2D collider){
-		if(collider.name=="myShip"){
-			if(GameObject.FindGameObjectWithTag("life4"))
-				GameObject.FindGameObjectWithTag("life4").AddComponent<fadeOut>();
-			else if(GameObject.FindGameObjectWithTag("life3"))
-				GameObject.FindGameObjectWithTag("life3").AddComponent<fadeOut>();
-			else if(GameObject.FindGameObjectWithTag("life2"))
-				GameObject.FindGameObjectWithTag("life2").AddComponent<fadeOut>();
-			else if(GameObject.FindGameObjectWithTag("life1"))
-				GameObject.FindGameObjectWithTag("life1").AddComponent<fadeOut>();
-		}
-	}
-	
-	
 }
