@@ -10,9 +10,10 @@ public class gameState : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+	    
         if(Instance == null){
 			Instance = this;
-			DontDestroyOnLoad(Instance.gameObject);
+			//DontDestroyOnLoad(Instance.gameObject);
 		}else if (this != Instance){
 			Debug.Log("Detruit");
 			Destroy(this.gameObject);
@@ -36,5 +37,14 @@ public class gameState : MonoBehaviour
 	{
 		score = 0;
 	}
-	
+
+	public void autodestruction()
+	{
+		Destroy(gameObject.GetComponent<asteroidCreation>());
+		GameObject[] tab = GameObject.FindGameObjectsWithTag("asteroid");
+		foreach (var asteroid in tab)
+		{
+			Destroy(asteroid);
+		}
+	}
 }

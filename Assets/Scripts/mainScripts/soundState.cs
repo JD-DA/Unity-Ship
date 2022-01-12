@@ -13,7 +13,7 @@ public class soundState : MonoBehaviour
     {
 	    if(Instance == null){
 		    Instance = this;
-		    DontDestroyOnLoad(Instance.gameObject);
+		    //DontDestroyOnLoad(Instance.gameObject);
 	    }else if (this != Instance){
 		    //Debug.Log("Detruit");
 		    Destroy(this.gameObject);

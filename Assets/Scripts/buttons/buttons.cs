@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class buttons : MonoBehaviour
 {
@@ -13,7 +14,7 @@ public class buttons : MonoBehaviour
     {
         pauseMenu = GameObject.FindGameObjectWithTag("pauseMenu");
         pauseButton = GameObject.FindGameObjectWithTag("pauseButton");
-        pauseMenu.SetActive(false);
+        hidePaused();
     }
 
     // Update is called once per frame
@@ -26,25 +27,42 @@ public class buttons : MonoBehaviour
     {
         Time.timeScale = 0;
         GameObject.Find("battleMusic").GetComponent<AudioSource>().Pause();
-        pauseMenu.SetActive(true);
-        pauseButton.SetActive(false);
+        showPaused();
     }
     public void playGame()
     {
         Time.timeScale = 1;
         GameObject.Find("battleMusic").GetComponent<AudioSource>().Play();
-        pauseMenu.SetActive(false);
-        pauseButton.SetActive(true);
-        
+        hidePaused();
+
     }
     
     //shows objects with ShowOnPause tag
     public void showPaused(){
         pauseMenu.SetActive(true);
+        pauseButton.SetActive(false);
     }
 
     //hides objects with ShowOnPause tag
     public void hidePaused(){
         pauseMenu.SetActive(false);
+        pauseButton.SetActive(true);
+    }
+
+    public void goToMenu()
+    {
+        Time.timeScale = 1;
+        /*gameState.Instance.autodestruction();
+        Destroy(gameState.Instance);
+        Destroy(Camera.main);*/
+        SceneManager.LoadScene("titlescreen");
+    }
+    
+    public void resetGame()
+    {
+        Time.timeScale = 1;
+        gameState.Instance.resteScore();
+        SceneManager.LoadScene("InfinitePlay");
+        
     }
 }

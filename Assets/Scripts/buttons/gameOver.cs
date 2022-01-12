@@ -15,7 +15,7 @@ public class gameOver : MonoBehaviour
     {
         if(Instance == null){
             Instance = this;
-            DontDestroyOnLoad(Instance.gameObject);
+            //DontDestroyOnLoad(Instance.gameObject);
         }else if (this != Instance){
             Destroy(this.gameObject);
         }
@@ -42,17 +42,16 @@ public class gameOver : MonoBehaviour
     {
         Time.timeScale = 1;
         gameState.Instance.resteScore();
-        SceneManager.LoadScene("SampleScene");
+        SceneManager.LoadScene("InfinitePlay");
         
     }
-    
-    //shows objects with ShowOnPause tag
-    public void showPaused(){
-        gameOverMenu.SetActive(true);
-    }
-
-    //hides objects with ShowOnPause tag
-    public void hidePaused(){
-        gameOverMenu.SetActive(false);
+    public void goToMenu()
+    {
+        Time.timeScale = 1;
+        gameState.Instance.autodestruction();
+        Destroy(gameState.Instance);
+        Destroy(Camera.main);
+        SceneManager.LoadScene("titlescreen");
+        Destroy(gameObject);
     }
 }
