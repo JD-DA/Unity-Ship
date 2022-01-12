@@ -6,6 +6,8 @@ public class soundState : MonoBehaviour
 {
 	public static soundState Instance;
 	public AudioClip playerShotSound;
+
+	public AudioClip shipHit;
     // Start is called before the first frame update
     void Start()
     {
@@ -25,6 +27,10 @@ public class soundState : MonoBehaviour
     }
 	public void touchButtonSound(){
 		MakeSound(playerShotSound);
+	}
+	
+	public void shipTouched(){
+		MakeSound(shipHit);
 	}
 	
 	private void MakeSound(AudioClip originalClip){

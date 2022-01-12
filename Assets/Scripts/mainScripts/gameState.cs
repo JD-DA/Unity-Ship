@@ -31,5 +31,10 @@ public class gameState : MonoBehaviour
 	public int getScorePlayer(int toAdd) {
 		return score;
 	}
+
+	public void resteScore()
+	{
+		score = 0;
+	}
 	
 }
