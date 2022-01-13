@@ -26,15 +26,15 @@ public class shootsAgain : MonoBehaviour
 			for (int i = 0; i < Input.touchCount; i++)
 			{
 				Touch touch = Input.GetTouch(i);
-				Debug.Log($"TouchEvent ! {touch.position.x} , {touch.position.y} ");
-				Debug.Log($"IsoverUI : {IsPointerOverUI(i)}");
-				Debug.Log($"touch posi > righTopcamera : {touch.position.x > rightTopCameraBorder.x / 2}");
+				//Debug.Log($"TouchEvent ! {touch.position.x} , {touch.position.y} ");
+				//Debug.Log($"IsoverUI : {IsPointerOverUI(i)}");
+				//Debug.Log($"touch posi > righTopcamera : {touch.position.x > rightTopCameraBorder.x / 2}");
 				if (touch.phase == TouchPhase.Began && !(IsPointerOverUI(i)) &&
 				    touch.position.x > rightTopCameraBorder.x / 2)
 				{
 					
-					Debug.Log($"position camera ! rtop {rightTopCameraBorder.x} , {rightTopCameraBorder.y} ");
-					Debug.Log($"position camera ! lBottom {leftBottomCameraBorder.x} , {leftBottomCameraBorder.y} ");
+					//Debug.Log($"position camera ! rtop {rightTopCameraBorder.x} , {rightTopCameraBorder.y} ");
+					//Debug.Log($"position camera ! lBottom {leftBottomCameraBorder.x} , {leftBottomCameraBorder.y} ");
 					sp = true;
 				}
 			}
