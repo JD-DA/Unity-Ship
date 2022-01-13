@@ -16,16 +16,14 @@ public class moveShip : MonoBehaviour
 	
 	private float smoothTime = 0.01f; 
 	Vector3 velocity;
-	// 2  Stockage du mouvement (float,float) xy
 	private Vector2 movement;
-    // Start is called before the first frame update -> on la vire
 
     private bool translating = false; //use when touch away from the ship, the ship will not teleport to the position but 
 
     private Vector2 targetPosition3;
 
     private int mainFinger = -1;
-    //translate to it until it reaches it
+    //the finger used to control the ship, since screen is multitouched we elect the first finger on the first third of the screen
 
     private void Start()
     {
