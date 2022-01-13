@@ -7,10 +7,11 @@ public class gameState : MonoBehaviour
 {
 	public static gameState Instance;
 	private int score = 0;
+	public Vector2 speed;
     // Start is called before the first frame update
     void Start()
     {
-	    
+	    speed = new Vector2(-5, 0);
         if(Instance == null){
 			Instance = this;
 			//DontDestroyOnLoad(Instance.gameObject);
@@ -45,6 +46,26 @@ public class gameState : MonoBehaviour
 		foreach (var asteroid in tab)
 		{
 			Destroy(asteroid);
+		}
+	}
+
+	public void shipColision(GameObject obj)
+	{
+		invulnerable comp =  obj.GetComponent<invulnerable>();
+		if (comp.inactive)
+		{
+			obj.GetComponent<invulnerable>().startFlash();
+                
+			soundState.Instance.shipTouched();
+			if (GameObject.FindGameObjectWithTag("life3"))
+				GameObject.FindGameObjectWithTag("life3").AddComponent<fadeOut>();
+			else if (GameObject.FindGameObjectWithTag("life2"))
+				GameObject.FindGameObjectWithTag("life2").AddComponent<fadeOut>();
+			else if (GameObject.FindGameObjectWithTag("life1"))
+			{
+				GameObject.FindGameObjectWithTag("life1").AddComponent<fadeOut>();
+				gameOver.Instance.GameOver(score,0);
+			}
 		}
 	}
 }

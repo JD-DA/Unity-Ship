@@ -17,6 +17,9 @@ TagManager:
   - GameOverMenu
   - seeLevelsButton
   - classementButton
+  - scoreInitial
+  - scoreTotal
+  - astronautSavedScore
   layers:
   - Default
   - TransparentFX

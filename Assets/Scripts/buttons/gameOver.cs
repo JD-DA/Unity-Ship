@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.SocialPlatforms.Impl;
+using UnityEngine.UI;
 
 public class gameOver : MonoBehaviour
 {
@@ -31,12 +33,15 @@ public class gameOver : MonoBehaviour
         
     }
 
-    public void GameOver()
+    public void GameOver(int score,int astronauts)
     {
         Time.timeScale = 0;
         GameObject.Find("battleMusic").GetComponent<AudioSource>().Pause();
         gameOverMenu.SetActive(true);
         pauseButton.SetActive(false);
+        GameObject.FindGameObjectWithTag("scoreInitial").GetComponent<Text>().text = ""+score;
+        GameObject.FindGameObjectWithTag("astronautSavedScore").GetComponent<Text>().text = ""+astronauts;
+        GameObject.FindGameObjectWithTag("scoreTotal").GetComponent<Text>().text = score+(astronauts*200)+"";
     }
     public void playGame()
     {

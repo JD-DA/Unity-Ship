@@ -18,10 +18,8 @@ public class moveAsteroid : MonoBehaviour
     {
 		leftBottomCameraBorder = Camera.main.ViewportToWorldPoint(new Vector3 (0,0,0));
 		rightTopCameraBorder = Camera.main.ViewportToWorldPoint(new Vector3 (1,1,0));
-		
-		movement = new Vector2(
-		speed.x ,
-		speed.y );
+
+		movement = gameState.Instance.speed;
 		
 		
 		GetComponent<Rigidbody2D> ().velocity = movement;
@@ -35,8 +33,8 @@ public class moveAsteroid : MonoBehaviour
 		siz.x = gameObject.GetComponent<SpriteRenderer> ().bounds.size.x;
 		siz.y = gameObject.GetComponent<SpriteRenderer> ().bounds.size.y;
 		if(transform.position.x< leftBottomCameraBorder.x - (siz.x/2)){
-			var mov = new Vector3 (rightTopCameraBorder.x+(siz.x /2),Random.Range(leftBottomCameraBorder.y,rightTopCameraBorder.y),transform.position.z);
-					GameObject gY	=	Instantiate(Resources.Load("asteroid1"), mov	,	Quaternion.identity) as	GameObject;
+			//var mov = new Vector3 (rightTopCameraBorder.x+(siz.x /2),Random.Range(leftBottomCameraBorder.y,rightTopCameraBorder.y),transform.position.z);
+					//GameObject gY	=	Instantiate(Resources.Load("asteroid1"), mov	,	Quaternion.identity) as	GameObject;
 
 			//gameObject.transform.position=new Vector3 (rightTopCameraBorder.x+(siz.x /2),Random.Range(leftBottomCameraBorder.y,rightTopCameraBorder.y),transform.position.z);
 			Destroy(gameObject);

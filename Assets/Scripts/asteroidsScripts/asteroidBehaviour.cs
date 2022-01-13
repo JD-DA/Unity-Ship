@@ -58,24 +58,7 @@ public class asteroidBehaviour : MonoBehaviour
         if(collider.name=="myShip"){
             gameObject.AddComponent<fadeOutFast>();
             GameObject gY = Instantiate(Resources.Load("explosion"), tmpPos, Quaternion.identity) as GameObject;
-            invulnerable comp =  collider.GetComponent<invulnerable>();
-            if (comp.inactive)
-            {
-                collider.GetComponent<invulnerable>().startFlash();
-                /*if (GameObject.FindGameObjectWithTag("life4"))
-                    GameObject.FindGameObjectWithTag("life4").AddComponent<fadeOut>();
-                else */
-                soundState.Instance.shipTouched();
-                if (GameObject.FindGameObjectWithTag("life3"))
-                    GameObject.FindGameObjectWithTag("life3").AddComponent<fadeOut>();
-                else if (GameObject.FindGameObjectWithTag("life2"))
-                    GameObject.FindGameObjectWithTag("life2").AddComponent<fadeOut>();
-                else if (GameObject.FindGameObjectWithTag("life1"))
-                {
-                    GameObject.FindGameObjectWithTag("life1").AddComponent<fadeOut>();
-                    gameOver.Instance.GameOver();
-                }
-            }
+            gameState.Instance.shipColision(collider.gameObject);
         }
     }
     
