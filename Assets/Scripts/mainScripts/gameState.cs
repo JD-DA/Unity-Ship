@@ -15,7 +15,7 @@ public class gameState : MonoBehaviour
 			Instance = this;
 			//DontDestroyOnLoad(Instance.gameObject);
 		}else if (this != Instance){
-			Debug.Log("Detruit");
+			//Debug.Log("Detruit");
 			Destroy(this.gameObject);
 		}
     }

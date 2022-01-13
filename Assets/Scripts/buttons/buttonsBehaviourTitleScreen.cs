@@ -19,6 +19,7 @@ public class buttonsBehaviourTitleScreen : MonoBehaviour
     
     public void playInfiniteGame()
     {
+        soundState.Instance.buttonTouchedd();
         SceneManager.LoadScene("InfinitePlay");
         
     }

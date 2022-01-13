@@ -45,7 +45,7 @@ public class asteroidBehaviour : MonoBehaviour
 
         if (collider.name.Length >= 8)
         {
-            Debug.Log(collider.name.Substring(0,8));
+            //Debug.Log(collider.name.Substring(0,8));
             if(collider.name.Substring(0,8)=="asteroid")
             {
                 if (collider.gameObject.GetComponent<asteroidBehaviour>().idDestruct > idDestruct)
