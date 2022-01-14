@@ -51,6 +51,7 @@ public class posShip : MonoBehaviour
 	void OnTriggerEnter2D(Collider2D collider){
 		if(collider.name=="astronaut(Clone)"){
 			gameState.Instance.saveAstronaut();
+			dataSavings.Instance.saveAstronaut();
 			Destroy(collider.gameObject);
 		}
 	}

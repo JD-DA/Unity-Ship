@@ -70,34 +70,34 @@ public class moveShip : MonoBehaviour
 					        touch.position.x < rightTopCameraBorder.x / 3 && mainFinger==-1 )
 					    {
 						    Rigidbody2D rigid = GetComponent<Rigidbody2D>();
-						    Debug.Log($"touch position : ${touch.position}");
+						    //Debug.Log($"touch position : ${touch.position}");
 						    var targetPosition2 =
 							    Camera.main.ScreenToWorldPoint(new Vector3(0, touch.position.y, 0));
 						    targetPosition3 = new Vector3(transform.position.x, targetPosition2.y, 0);
-						    Debug.Log($"touch position : ${targetPosition3}");
+						    /*Debug.Log($"touch position : ${targetPosition3}");
 						    Debug.Log($"touch position : ${currentPosition}");
-						    Debug.Log($"mainFinger is : ${i}");
+						    Debug.Log($"mainFinger is : ${i}");*/
 						    transform.position = Vector3.SmoothDamp(currentPosition, targetPosition3, ref velocity,
 							    smoothTime, maxspeed);
 						    translating = true;
 						    mainFinger = i;
-						    Debug.Log("translating begin");
+						    //Debug.Log("translating begin");
 						    //rigid.MovePosition();
 						    break;
 					    }
 					    else if  (touch.phase == TouchPhase.Moved && i==mainFinger && !translating)
 					    {
-						    Debug.Log($"mainFinger ${i} mouved");
+						    //Debug.Log($"mainFinger ${i} mouved");
 						    var targetPosition2 =
 							    Camera.main.ScreenToWorldPoint(new Vector3(0, touch.position.y, 0));
 						    targetPosition3 = new Vector3(transform.position.x, targetPosition2.y, 0);
-						    Debug.Log($"touch position : ${targetPosition3}");
-						    Debug.Log($"touch position : ${currentPosition}");
+						    //Debug.Log($"touch position : ${targetPosition3}");
+						    //Debug.Log($"touch position : ${currentPosition}");
 						    transform.position = targetPosition3;
 						    break;
 					    }else if  (touch.phase == TouchPhase.Ended && i==mainFinger)
 					    {
-						    Debug.Log($"mainFinger ${i} is out");
+						    //Debug.Log($"mainFinger ${i} is out");
 						    mainFinger = -1;
 						    translating = false;
 						    break;

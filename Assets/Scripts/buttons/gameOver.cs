@@ -37,13 +37,23 @@ public class gameOver : MonoBehaviour
 
     public void GameOver(int score,int astronauts)
     {
+        var scoreTotal = score + astronauts * 200;
         Time.timeScale = 0;
         GameObject.Find("battleMusic").GetComponent<AudioSource>().Pause();
         gameOverMenu.SetActive(true);
         pauseButton.SetActive(false);
         GameObject.FindGameObjectWithTag("scoreInitial").GetComponent<Text>().text = ""+score;
         GameObject.FindGameObjectWithTag("astronautSavedScore").GetComponent<Text>().text = ""+astronauts;
-        GameObject.FindGameObjectWithTag("scoreTotal").GetComponent<Text>().text = score+(astronauts*200)+"";
+        GameObject.FindGameObjectWithTag("scoreTotal").GetComponent<Text>().text = scoreTotal+"";
+        if (dataSavings.Instance.bestThanBestScore(scoreTotal))
+        {
+            GameObject.FindGameObjectWithTag("bestScoreLabel").GetComponent<Text>().text = "New Best Score !";
+            dataSavings.Instance.saveScore(scoreTotal);
+        }
+        else
+        {
+            GameObject.FindGameObjectWithTag("bestScoreLabel").GetComponent<Text>().text = "Best Score :"+dataSavings.Instance.getBestScore();
+        }
     }
     public void playGame()
     {

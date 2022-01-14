@@ -23,6 +23,7 @@ TagManager:
   - bigAsteroid
   - astronautsScore
   - astronautSymbole
+  - bestScoreLabel
   layers:
   - Default
   - TransparentFX

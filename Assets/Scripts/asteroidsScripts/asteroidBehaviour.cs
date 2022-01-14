@@ -41,6 +41,7 @@ public class asteroidBehaviour : MonoBehaviour
             gameObject.AddComponent<fadeOutFast>();
             GameObject gY = Instantiate(Resources.Load("explosion"), tmpPos, Quaternion.identity) as GameObject;
             gameState.Instance.addScorePlayer(score);
+            dataSavings.Instance.saveAsteroid();
         }
 
         if (collider.name.Length >= 8)
