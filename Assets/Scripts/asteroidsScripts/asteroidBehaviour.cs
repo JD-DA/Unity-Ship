@@ -51,7 +51,7 @@ public class asteroidBehaviour : MonoBehaviour
             //Debug.Log(collider.name.Substring(0,8));
             if(collider.name.Substring(0,8)=="asteroid")
             {
-                if (collider.gameObject.GetComponent<asteroidBehaviour>().idDestruct > idDestruct && transform.position.x<rightTopCameraBorder.x)
+                if (collider.gameObject.GetComponent<asteroidBehaviour>().idDestruct > idDestruct && transform.position.x>rightTopCameraBorder.x)
                 {
                     Destroy(gameObject);
                 }

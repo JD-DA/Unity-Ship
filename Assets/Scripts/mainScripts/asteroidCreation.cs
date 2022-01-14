@@ -10,9 +10,12 @@ public class asteroidCreation : MonoBehaviour
 	public int luck;
 
 	public bool creating = true;
+	
+	private timelineHandler handler;
     // Start is called before the first frame update
     void Start()
     {
+	    handler = timelineHandler.Instance;
         leftBottomCameraBorder = Camera.main.ViewportToWorldPoint(new Vector3 (0,0,0));
 		rightTopCameraBorder = Camera.main.ViewportToWorldPoint(new Vector3 (1,1,0));
 		
@@ -21,15 +24,15 @@ public class asteroidCreation : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-	    if(creating)
+	    if(handler.createAsteroids)
 	    {
 		    var avgFrameRate = (int) (Time.frameCount / Time.time);
 		    Debug.Log(avgFrameRate);
 		    var respaws = GameObject.FindGameObjectsWithTag("bigAsteroid");
 
-		    if (respaws.Length < 10)
+		    if (respaws.Length < handler.numBigAsteroid)
 		    {
-			    if (Random.Range(1, avgFrameRate) == 2 )
+			    if (Random.Range(1, (int) (avgFrameRate * handler.asteroids)) == 2 )
 			    {
 				    var mov = new Vector3(rightTopCameraBorder.x + (rightTopCameraBorder.x / 2),
 					    Random.Range(leftBottomCameraBorder.y, rightTopCameraBorder.y), 0);
@@ -44,9 +47,9 @@ public class asteroidCreation : MonoBehaviour
 		    
 		    respaws = GameObject.FindGameObjectsWithTag("asteroid");
 
-		    if (respaws.Length < 6)
+		    if (respaws.Length < handler.numAsteroid)
 		    {
-			    if (Random.Range(1, avgFrameRate) == 2 )
+			    if (Random.Range(1, (int) (avgFrameRate * handler.asteroids)) == 2 )
 			    {
 				    var mov = new Vector3(rightTopCameraBorder.x + (rightTopCameraBorder.x / 2),
 					    Random.Range(leftBottomCameraBorder.y, rightTopCameraBorder.y), 0);

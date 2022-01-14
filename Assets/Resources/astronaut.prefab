@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 2663051647040789409}
   - component: {fileID: 8567037688954280109}
   - component: {fileID: 6104195161865480560}
+  - component: {fileID: -4469127973460846611}
   m_Layer: 0
   m_Name: astronaut
   m_TagString: Untagged
@@ -152,3 +153,15 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.14, y: 0.16}
   m_EdgeRadius: 0
+--- !u!114 &-4469127973460846611
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2663051647040789412}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ffa320563616b4e3e80d8803971e9109, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

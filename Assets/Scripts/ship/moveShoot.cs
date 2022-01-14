@@ -4,11 +4,6 @@ using UnityEngine;
 
 public class moveShoot : MonoBehaviour
 {
-    // verifier que classe = nom du fichier
-	// 1 la vitesse de deplacement
-	public Vector2 speed;
-	
-	// 2  Stockage du mouvement (float,float) xy
 	private Vector2 movement;
 	
 	private Vector3 rightTopCameraBorder;
@@ -23,8 +18,8 @@ public class moveShoot : MonoBehaviour
 		rightTopCameraBorder = Camera.main.ViewportToWorldPoint(new Vector3 (1,1,0));
 		
 		movement = new Vector2(
-		speed.x ,
-		speed.y );
+		10 ,
+		0 );
 		
 		GetComponent<Rigidbody2D> ().velocity = movement;
         

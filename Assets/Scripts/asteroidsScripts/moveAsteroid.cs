@@ -19,7 +19,7 @@ public class moveAsteroid : MonoBehaviour
 		leftBottomCameraBorder = Camera.main.ViewportToWorldPoint(new Vector3 (0,0,0));
 		rightTopCameraBorder = Camera.main.ViewportToWorldPoint(new Vector3 (1,1,0));
 
-		movement = gameState.Instance.speed;
+		movement = timelineHandler.Instance.speed;
 		
 		
 		GetComponent<Rigidbody2D> ().velocity = movement;

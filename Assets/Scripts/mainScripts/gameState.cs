@@ -8,7 +8,6 @@ public class gameState : MonoBehaviour
 {
 	public static gameState Instance;
 	private int score = 0;
-	public Vector2 speed;
 
 	private int astronautSaved;
 	bool scoreAstronautsActive = false;
@@ -21,7 +20,6 @@ public class gameState : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-	    speed = new Vector2(-5, 0);
         if(Instance == null){
 			Instance = this;
 			//DontDestroyOnLoad(Instance.gameObject);
