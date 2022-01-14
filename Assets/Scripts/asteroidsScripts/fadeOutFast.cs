@@ -14,7 +14,7 @@ public class fadeOutFast : MonoBehaviour
     void Update()
     {
         Color cl = GetComponent<SpriteRenderer>().color;
-		cl.a-= 0.1f;
+		cl.a-= 0.2f;
 		GetComponent<SpriteRenderer>().color = cl;
 		if(cl.a < 0){
 			Destroy(gameObject);

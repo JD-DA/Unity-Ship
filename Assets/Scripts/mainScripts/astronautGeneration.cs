@@ -20,6 +20,7 @@ public class astronautGeneration : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        handler = timelineHandler.Instance;
         if(handler.createAstronauts)
         {
             var avgFrameRate = (int) (Time.frameCount / Time.time);

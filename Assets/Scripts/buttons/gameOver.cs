@@ -67,7 +67,6 @@ public class gameOver : MonoBehaviour
         Time.timeScale = 1;
         gameState.Instance.autodestruction();
         Destroy(gameState.Instance);
-        Destroy(Camera.main);
         SceneManager.LoadScene("titlescreen");
         Destroy(gameObject);
     }

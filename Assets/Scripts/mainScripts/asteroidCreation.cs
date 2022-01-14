@@ -24,10 +24,11 @@ public class asteroidCreation : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+	    handler = timelineHandler.Instance;
 	    if(handler.createAsteroids)
 	    {
 		    var avgFrameRate = (int) (Time.frameCount / Time.time);
-		    Debug.Log(avgFrameRate);
+		    //Debug.Log(avgFrameRate);
 		    var respaws = GameObject.FindGameObjectsWithTag("bigAsteroid");
 
 		    if (respaws.Length < handler.numBigAsteroid)

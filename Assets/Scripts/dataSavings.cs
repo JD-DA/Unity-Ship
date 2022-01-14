@@ -42,6 +42,7 @@ public class dataSavings : MonoBehaviour
 
     public void saveAsteroid()
     {
+        Debug.Log("saveasteroid : "+asteroids);
         ++asteroids;
         PlayerPrefs.SetInt("NumAsteroidsDestroyed", asteroids);
         PlayerPrefs.Save();

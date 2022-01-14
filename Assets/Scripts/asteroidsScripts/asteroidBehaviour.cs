@@ -8,7 +8,7 @@ public class asteroidBehaviour : MonoBehaviour
     private int score;
     private int hit;
     public int idDestruct; //utilisé dans le cas ou deux asteroid pop avec colision, on détruit celui avec le plus petit id
-    
+
     // Start is called before the first frame update
     void Start()
     {
@@ -34,16 +34,18 @@ public class asteroidBehaviour : MonoBehaviour
     }
 
     void OnTriggerEnter2D(Collider2D collider){
-        //Debug.Log(collider.name);
         Vector3 tmpPos = new Vector3(transform.position.x,
             transform.position.y,
             transform.position.z);
         if (collider.name == "shoot_Orange(Clone)")
         {
+            Debug.Log(collider.name);
             gameObject.AddComponent<fadeOutFast>();
-            GameObject gY = Instantiate(Resources.Load("explosion"), tmpPos, Quaternion.identity) as GameObject;
-            gameState.Instance.addScorePlayer(score);
-            dataSavings.Instance.saveAsteroid();
+                GameObject gY = Instantiate(Resources.Load("explosion"), tmpPos, Quaternion.identity) as GameObject;
+                gameState.Instance.addScorePlayer(score);
+                dataSavings.Instance.saveAsteroid();
+                Destroy(gameObject);
+            
         }
 
         if (collider.name.Length >= 8)
