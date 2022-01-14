@@ -23,7 +23,8 @@ public class sparkling : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(Random.Range(1,1000)==50 && Time.timeScale==1){
+        var avgFrameRate = (int) (Time.frameCount / Time.time);
+        if(Random.Range(1,avgFrameRate*timelineHandler.Instance.sparkling)==4 && Time.timeScale==1){
             var mov = new Vector3 (Random.Range(leftTopCameraBorder.x,rightTopCameraBorder.x),Random.Range(leftBottomCameraBorder.y,rightTopCameraBorder.y),0);
             GameObject gY	=	Instantiate(Resources.Load("sparkle"), mov	,Quaternion.identity) as	GameObject;
             if(sparkleStill)

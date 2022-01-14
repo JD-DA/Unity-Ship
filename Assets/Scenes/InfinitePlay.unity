@@ -913,6 +913,7 @@ GameObject:
   - component: {fileID: 519420035}
   - component: {fileID: 519420036}
   - component: {fileID: 519420037}
+  - component: {fileID: 519420038}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -1025,6 +1026,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 63793a6c26922b24eb0c89787ca97446, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  luck: 800
   creating: 1
 --- !u!114 &519420035
 MonoBehaviour:
@@ -1064,6 +1066,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3a6059b7a66e645b29c16531ff5d63d3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &519420038
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 519420028}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 92a67346317e44dc49586d84ad16eb6e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rare: 10
+  common: 1
+  quiterare: 5
+  sparkling: 2
+  numAsteroid: 6
+  numBigAsteroid: 7
 --- !u!1 &570664159
 GameObject:
   m_ObjectHideFlags: 0

@@ -7,6 +7,7 @@ public class asteroidCreation : MonoBehaviour
 	private Vector3 rightTopCameraBorder;
 	private Vector3 leftBottomCameraBorder;
 	private Vector3 siz;
+	public int luck;
 
 	public bool creating = true;
     // Start is called before the first frame update
@@ -22,11 +23,13 @@ public class asteroidCreation : MonoBehaviour
     {
 	    if(creating)
 	    {
+		    var avgFrameRate = (int) (Time.frameCount / Time.time);
+		    Debug.Log(avgFrameRate);
 		    var respaws = GameObject.FindGameObjectsWithTag("bigAsteroid");
 
-		    if (respaws.Length < 6)
+		    if (respaws.Length < 10)
 		    {
-			    if (Random.Range(1, 500) == 50 )
+			    if (Random.Range(1, avgFrameRate) == 2 )
 			    {
 				    var mov = new Vector3(rightTopCameraBorder.x + (rightTopCameraBorder.x / 2),
 					    Random.Range(leftBottomCameraBorder.y, rightTopCameraBorder.y), 0);
@@ -43,7 +46,7 @@ public class asteroidCreation : MonoBehaviour
 
 		    if (respaws.Length < 6)
 		    {
-			    if (Random.Range(1, 500) == 50 )
+			    if (Random.Range(1, avgFrameRate) == 2 )
 			    {
 				    var mov = new Vector3(rightTopCameraBorder.x + (rightTopCameraBorder.x / 2),
 					    Random.Range(leftBottomCameraBorder.y, rightTopCameraBorder.y), 0);

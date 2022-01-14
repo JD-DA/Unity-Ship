@@ -35,7 +35,7 @@ public class moveShoot : MonoBehaviour
     {
 		siz.x = gameObject.GetComponent<SpriteRenderer> ().bounds.size.x;
 		siz.y = gameObject.GetComponent<SpriteRenderer> ().bounds.size.y;
-		if(transform.position.x< leftBottomCameraBorder.x - (siz.x/2)){
+		if(transform.position.x< leftBottomCameraBorder.x - (siz.x/2) || transform.position.x> rightTopCameraBorder.x - (siz.x/2 )){
 			Destroy(gameObject);
 		}
         
