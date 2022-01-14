@@ -22,17 +22,34 @@ public class asteroidCreation : MonoBehaviour
     {
 	    if(creating)
 	    {
-		    var respaws = GameObject.FindGameObjectsWithTag("asteroid");
+		    var respaws = GameObject.FindGameObjectsWithTag("bigAsteroid");
 
 		    if (respaws.Length < 6)
 		    {
-			    if (Random.Range(1, 500) == 50 || respaws.Length < 4)
+			    if (Random.Range(1, 500) == 50 )
 			    {
 				    var mov = new Vector3(rightTopCameraBorder.x + (rightTopCameraBorder.x / 2),
 					    Random.Range(leftBottomCameraBorder.y, rightTopCameraBorder.y), 0);
 
 				    string name = "asteroid";
-				    name += Random.Range(1, 13).ToString();
+				    name += Random.Range(1, 4).ToString();
+				    //Debug.Log(name);
+				    GameObject pgo =
+					    GameObject.Instantiate(Resources.Load(name), mov, Quaternion.identity) as GameObject;
+			    }
+		    }
+		    
+		    respaws = GameObject.FindGameObjectsWithTag("asteroid");
+
+		    if (respaws.Length < 6)
+		    {
+			    if (Random.Range(1, 500) == 50 )
+			    {
+				    var mov = new Vector3(rightTopCameraBorder.x + (rightTopCameraBorder.x / 2),
+					    Random.Range(leftBottomCameraBorder.y, rightTopCameraBorder.y), 0);
+
+				    string name = "asteroid";
+				    name += Random.Range(5, 13).ToString();
 				    //Debug.Log(name);
 				    GameObject pgo =
 					    GameObject.Instantiate(Resources.Load(name), mov, Quaternion.identity) as GameObject;

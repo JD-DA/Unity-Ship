@@ -46,6 +46,9 @@ public class moveShoot : MonoBehaviour
     }
 	
 	void OnTriggerEnter2D(Collider2D collider){
+		if(collider.name=="astronaut(Clone)"){
+			Destroy(collider.gameObject);
+		}
 		Destroy(gameObject);
 	}
 }

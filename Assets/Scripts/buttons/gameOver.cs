@@ -11,7 +11,9 @@ public class gameOver : MonoBehaviour
     GameObject gameOverMenu;
     GameObject pauseButton;
     public static gameOver Instance;
-    
+    private int score;
+    private int astronauts;
+
     // Start is called before the first frame update
     void Start()
     {

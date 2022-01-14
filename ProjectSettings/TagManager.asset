@@ -20,6 +20,9 @@ TagManager:
   - scoreInitial
   - scoreTotal
   - astronautSavedScore
+  - bigAsteroid
+  - astronautsScore
+  - astronautSymbole
   layers:
   - Default
   - TransparentFX
