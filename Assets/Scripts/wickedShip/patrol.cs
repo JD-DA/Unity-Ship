@@ -78,6 +78,7 @@ public class patrol : MonoBehaviour
                 if (life == 0)
                 {
                     timelineHandler.Instance.ennemyDestroyed();
+                    dataSavings.Instance.saveWickedShipDestroyed();
                     Destroy(gameObject);
                 }
                 comp.startFlash();

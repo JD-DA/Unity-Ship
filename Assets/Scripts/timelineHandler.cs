@@ -24,9 +24,9 @@ public class timelineHandler : MonoBehaviour
 
     //creation en cours des objets ?
     [NonSerialized]
-    public bool createAsteroids = false;
+    public bool createAsteroids = true;
     [NonSerialized]
-    public bool createAstronauts =false;
+    public bool createAstronauts =true;
     [NonSerialized]
     public bool createEnemy =false;
     

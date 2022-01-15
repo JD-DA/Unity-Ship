@@ -45,7 +45,7 @@ public class asteroidBehaviour : MonoBehaviour
                 gameState.Instance.addScorePlayer(score);
                 dataSavings.Instance.saveAsteroid();
                 Destroy(gameObject);
-            
+                Destroy(collider.gameObject);
         }
 
         if (collider.name.Length >= 8)

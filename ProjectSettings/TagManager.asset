@@ -24,6 +24,7 @@ TagManager:
   - astronautsScore
   - astronautSymbole
   - bestScoreLabel
+  - scoreWickedShips
   layers:
   - Default
   - TransparentFX

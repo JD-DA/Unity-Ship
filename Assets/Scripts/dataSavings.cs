@@ -9,6 +9,8 @@ public class dataSavings : MonoBehaviour
     private int astronauts = 0;
 
     private int bestScore = 0;
+    
+    private int wickedShips = 0;
 
     public static dataSavings Instance;
     
@@ -26,6 +28,9 @@ public class dataSavings : MonoBehaviour
             astronauts = PlayerPrefs.GetInt("NumAstronautsSaved");
         if (PlayerPrefs.HasKey("BestScore"))
             bestScore = PlayerPrefs.GetInt("BestScore");
+        if (PlayerPrefs.HasKey("wickedShipsdestroyed"))
+            wickedShips = PlayerPrefs.GetInt("wickedShipsdestroyed");
+        
         
     }
 
@@ -43,6 +48,8 @@ public class dataSavings : MonoBehaviour
     public void saveAsteroid()
     {
         ++asteroids;
+        PlayerPrefs.SetInt("NumAsteroidsDestroyed", asteroids);
+        //Debug.Log($"Nb asteroid : ${asteroids}");
         PlayerPrefs.Save();
     }
 
@@ -62,6 +69,12 @@ public class dataSavings : MonoBehaviour
     {
         PlayerPrefs.SetInt("BestScore", score);
         bestScore = score;
+        PlayerPrefs.Save();
+    }
+
+    public void saveWickedShipDestroyed()
+    {
+        PlayerPrefs.SetInt("wickedShipsdestroyed",++wickedShips);
         PlayerPrefs.Save();
     }
 }
