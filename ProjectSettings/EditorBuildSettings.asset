@@ -12,9 +12,12 @@ EditorBuildSettings:
     path: Assets/Scenes/InfinitePlay.unity
     guid: 2cda990e2423bbf4892e6590ba056729
   - enabled: 0
-    path: Assets/Scenes/scoreScreen.unity
+    path: 
     guid: d3193f9c6fee1405ba3a42d3d2b97729
   - enabled: 1
     path: Assets/Scenes/statScreen.unity
     guid: 37f399fb96cc148a788a025d9368989a
+  - enabled: 1
+    path: Assets/Scenes/tutoScreen.unity
+    guid: 4d9ebe4ae826f42ceacdff0796a8cdd9
   m_configObjects: {}

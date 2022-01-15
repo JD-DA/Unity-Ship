@@ -21,13 +21,29 @@ public class buttonsBehaviourTitleScreen : MonoBehaviour
     public void playInfiniteGame()
     {
         soundState.Instance.buttonTouchedd();
-        SceneManager.LoadScene("InfinitePlay");
-        Destroy(music);
+        if (PlayerPrefs.GetInt("tutoShowed", 0) == 0)
+        {
+            PlayerPrefs.SetInt("tutoShowed",1);
+            PlayerPrefs.Save();
+            SceneManager.LoadScene("tutoScreen");
+        }
+        else
+        {
+            SceneManager.LoadScene("InfinitePlay");
+            Destroy(music);
+        }
+        
+        
         
     }
 
     public void goToStat()
     {
         SceneManager.LoadScene("statScreen");
+    }
+    
+    public void goToSettings()
+    {
+        SceneManager.LoadScene("settingsScreen");
     }
 }
