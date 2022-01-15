@@ -39,13 +39,31 @@ public class shootsAgain : MonoBehaviour
 				}
 			}
 		}
+
+		var game = gameState.Instance;
 		if(sp){
-			Vector3 tmpPos = new Vector3(transform.position.x + siz.x,
-			transform.position.y,
-			transform.position.z);
-			GameObject gY = Instantiate (Resources.Load("shoot_Orange"),tmpPos,Quaternion.identity) as GameObject;
-			gY.GetComponent<moveShoot>().setShoot(10);
-			soundState.Instance.touchButtonSound();
+			if (game.doubleShoot)
+			{
+				Vector3 tmpPos1 = new Vector3(transform.position.x + siz.x,
+					transform.position.y + siz.y/4,
+					transform.position.z);
+				Vector3 tmpPos2 = new Vector3(transform.position.x + siz.x,
+					transform.position.y - siz.y/4,
+					transform.position.z);
+				GameObject gY1 = Instantiate(Resources.Load("shoot_Orange"), tmpPos1, Quaternion.identity) as GameObject;
+				GameObject gY2 = Instantiate(Resources.Load("shoot_Orange"), tmpPos2, Quaternion.identity) as GameObject;
+				gY1.GetComponent<moveShoot>().setShoot(10);
+				gY2.GetComponent<moveShoot>().setShoot(10);
+				soundState.Instance.touchButtonSound();
+			}else
+			{
+				Vector3 tmpPos = new Vector3(transform.position.x + siz.x,
+					transform.position.y,
+					transform.position.z);
+				GameObject gY = Instantiate(Resources.Load("shoot_Orange"), tmpPos, Quaternion.identity) as GameObject;
+				gY.GetComponent<moveShoot>().setShoot(10);
+				soundState.Instance.touchButtonSound();
+			}
 		}
     }
     

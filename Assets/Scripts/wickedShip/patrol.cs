@@ -79,6 +79,7 @@ public class patrol : MonoBehaviour
                 {
                     timelineHandler.Instance.ennemyDestroyed();
                     dataSavings.Instance.saveWickedShipDestroyed();
+                    dropBonus();
                     Destroy(gameObject);
                 }
                 comp.startFlash();
@@ -90,5 +91,22 @@ public class patrol : MonoBehaviour
             var game = Instantiate(Resources.Load("explosion"), tmpPos, Quaternion.identity) as GameObject;
             Destroy(collider.gameObject);
         }
+    }
+
+    private void dropBonus()
+    {
+        var prefab = "";
+        if (!gameState.Instance.doubleShoot)
+        {
+            prefab = "power-up_0";
+        }
+        else
+        {
+            prefab = "power-up_1";
+        }
+        GameObject pgo =
+            GameObject.Instantiate(Resources.Load(prefab), gameObject.transform.position, Quaternion.identity) as GameObject;
+                    
+        pgo.GetComponent<Rigidbody2D> ().velocity = timelineHandler.Instance.speed;
     }
 }

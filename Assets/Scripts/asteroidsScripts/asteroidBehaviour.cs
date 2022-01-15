@@ -60,7 +60,7 @@ public class asteroidBehaviour : MonoBehaviour
             }
         }
         
-        if(collider.name=="myShip"){
+        if(collider.name=="myShip" || collider.name=="myShip2(Clone)"|| collider.name=="myShip(Clone)"){
             gameObject.AddComponent<fadeOutFast>();
             GameObject gY = Instantiate(Resources.Load("explosion"), tmpPos, Quaternion.identity) as GameObject;
             gameState.Instance.shipColision(collider.gameObject);

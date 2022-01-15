@@ -25,7 +25,7 @@ public class enemyCreation : MonoBehaviour
         if(handler.createEnemy)
         {
             var avgFrameRate = (int) (Time.frameCount / Time.time);
-            if (Random.Range(1, (int)handler.ennemy*avgFrameRate) == 42 ) 
+            if (Random.Range(1, (int)handler.enemy*avgFrameRate) == 42 ) 
             {
                 var mov = new Vector3(rightTopCameraBorder.x + (rightTopCameraBorder.x / 2),
                     Random.Range(leftBottomCameraBorder.y, rightTopCameraBorder.y), 0);

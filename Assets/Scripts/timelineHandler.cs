@@ -20,7 +20,10 @@ public class timelineHandler : MonoBehaviour
     [System.NonSerialized]
     public float asteroids = 1f;
     [System.NonSerialized]
-    public float ennemy = 25;
+    public float enemy = 25;
+
+    [System.NonSerialized] 
+    public int enemyShoots = 3;
 
     //creation en cours des objets ?
     [NonSerialized]
@@ -32,7 +35,7 @@ public class timelineHandler : MonoBehaviour
     
     //limite
     [System.NonSerialized]
-    public int numAsteroid = 6;
+    public int numAsteroid = 3;
     [System.NonSerialized]
     public int numBigAsteroid = 7;
 
@@ -60,8 +63,8 @@ public class timelineHandler : MonoBehaviour
         {
             Debug.Log("phase 1 !");
             phase1 = false;
-            numAsteroid = 9;
-            numBigAsteroid = 10;
+            numAsteroid = 6;
+            numBigAsteroid = 8;
             asteroids = 0.6f;
             astronauts = 25;
         }
@@ -69,8 +72,9 @@ public class timelineHandler : MonoBehaviour
         {
             Debug.Log("phase 2 !");
             phase2 = false;
-            numAsteroid = 12;
-            numBigAsteroid = 14;
+            numAsteroid = 7;
+            numBigAsteroid = 10;
+            enemyShoots = 4;
         }
 
         if (time > 5 && time < 35 && (int) time != delta)

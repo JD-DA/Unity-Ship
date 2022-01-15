@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class astronautBehaviour : MonoBehaviour
+public class bonusBehaviour : MonoBehaviour
 {
     private Vector3 rightTopCameraBorder;
     private Vector3 leftBottomCameraBorder;
@@ -20,10 +20,5 @@ public class astronautBehaviour : MonoBehaviour
         }
     }
     
-    void OnTriggerEnter2D(Collider2D collider){
-        if(collider.name=="shoot_Orange(Clone)" || collider.name=="fireShoot(Clone)"){
-            Destroy(collider.gameObject);
-            Destroy(gameObject);
-        }
-    }
+    
 }

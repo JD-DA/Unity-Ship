@@ -62,6 +62,16 @@ public class posShip : MonoBehaviour
 			Destroy(collider.gameObject);
 			GameObject gY = Instantiate(Resources.Load("explosion"), tmpPos, Quaternion.identity) as GameObject;
 			gameState.Instance.shipColision(gameObject);
+		}else if (collider.name == "power-up_0(Clone)")
+		{
+			Destroy(collider.gameObject);
+			gameState.Instance.doubleShoot = true;
+			GameObject gY = Instantiate(Resources.Load("Ship/myShip2"), gameObject.transform.position, Quaternion.identity) as GameObject;
+			Destroy(gameObject);
+		}else if (collider.name == "power-up_1(Clone)")
+		{
+			Destroy(collider.gameObject);
+			gameState.Instance.addScorePlayer(100);
 		}
 	}
 }

@@ -16,6 +16,8 @@ public class gameState : MonoBehaviour
 
 	private GameObject scoreAstronauts;
 
+	public bool doubleShoot;
+
 	private GameObject astronautsSymbole;
     // Start is called before the first frame update
     void Start()
@@ -71,17 +73,25 @@ public class gameState : MonoBehaviour
 		if (comp.inactive)
 		{
 			obj.GetComponent<invulnerable>().startFlash();
-                
-			soundState.Instance.shipTouched();
-			if (GameObject.FindGameObjectWithTag("life3"))
-				GameObject.FindGameObjectWithTag("life3").AddComponent<fadeOut>();
-			else if (GameObject.FindGameObjectWithTag("life2"))
-				GameObject.FindGameObjectWithTag("life2").AddComponent<fadeOut>();
-			else if (GameObject.FindGameObjectWithTag("life1"))
+			if (doubleShoot)
 			{
-				GameObject.FindGameObjectWithTag("life1").AddComponent<fadeOut>();
-				gameOver.Instance.GameOver(score,astronautSaved);
+				GameObject gm = GameObject.FindGameObjectWithTag("ship");
+				GameObject gY = Instantiate(Resources.Load("Ship/myShip"), gm.transform.position, Quaternion.identity) as GameObject;
+				Destroy(gm);
+				doubleShoot = false;
+			}else
+			{
+				if (GameObject.FindGameObjectWithTag("life3"))
+					GameObject.FindGameObjectWithTag("life3").AddComponent<fadeOut>();
+				else if (GameObject.FindGameObjectWithTag("life2"))
+					GameObject.FindGameObjectWithTag("life2").AddComponent<fadeOut>();
+				else if (GameObject.FindGameObjectWithTag("life1"))
+				{
+					GameObject.FindGameObjectWithTag("life1").AddComponent<fadeOut>();
+					gameOver.Instance.GameOver(score, astronautSaved);
+				}
 			}
+			soundState.Instance.shipTouched();
 		}
 	}
 

@@ -20,11 +20,9 @@ public class introduceShip : MonoBehaviour
     void Start()
     {
         currentPosition = transform.position;
-        Debug.Log($"current position : ${currentPosition}");
         targetPosition = Camera.main.ViewportToWorldPoint(new Vector3(0.86f, 0, 0));
         targetPosition.y = currentPosition.y;
         targetPosition.z = currentPosition.z;
-        Debug.Log($"target position : ${targetPosition}");
         patpatrouille = gameObject.GetComponent<patrol>();
         shooter = gameObject.GetComponent<shoot>();
     }
