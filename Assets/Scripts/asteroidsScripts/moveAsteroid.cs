@@ -1,6 +1,8 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class moveAsteroid : MonoBehaviour
 {
@@ -19,7 +21,16 @@ public class moveAsteroid : MonoBehaviour
 		leftBottomCameraBorder = Camera.main.ViewportToWorldPoint(new Vector3 (0,0,0));
 		rightTopCameraBorder = Camera.main.ViewportToWorldPoint(new Vector3 (1,1,0));
 
-		movement = timelineHandler.Instance.speed;
+		//on utlise le prefab dans la page de tuto
+		try
+		{
+			movement = timelineHandler.Instance.speed;
+		}
+		catch (Exception e)
+		{
+			movement = new Vector2(0, 0);
+		}
+		
 		
 		
 		GetComponent<Rigidbody2D> ().velocity = movement;

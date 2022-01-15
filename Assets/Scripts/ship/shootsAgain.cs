@@ -42,7 +42,7 @@ public class shootsAgain : MonoBehaviour
 
 		var game = gameState.Instance;
 		if(sp){
-			if (game.doubleShoot)
+			if (game!=null && game.doubleShoot)
 			{
 				Vector3 tmpPos1 = new Vector3(transform.position.x + siz.x,
 					transform.position.y + siz.y/4,
