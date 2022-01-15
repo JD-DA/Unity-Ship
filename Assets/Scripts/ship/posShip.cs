@@ -53,6 +53,15 @@ public class posShip : MonoBehaviour
 			gameState.Instance.saveAstronaut();
 			dataSavings.Instance.saveAstronaut();
 			Destroy(collider.gameObject);
+		}else if(collider.name=="fireShoot(Clone)")
+		{
+			var tr = collider.gameObject.transform;
+			Vector3 tmpPos = new Vector3(tr.position.x,
+				tr.position.y,
+				tr.position.z);
+			Destroy(collider.gameObject);
+			GameObject gY = Instantiate(Resources.Load("explosion"), tmpPos, Quaternion.identity) as GameObject;
+			gameState.Instance.shipColision(gameObject);
 		}
 	}
 }

@@ -44,6 +44,7 @@ public class shootsAgain : MonoBehaviour
 			transform.position.y,
 			transform.position.z);
 			GameObject gY = Instantiate (Resources.Load("shoot_Orange"),tmpPos,Quaternion.identity) as GameObject;
+			gY.GetComponent<moveShoot>().setShoot(10);
 			soundState.Instance.touchButtonSound();
 		}
     }

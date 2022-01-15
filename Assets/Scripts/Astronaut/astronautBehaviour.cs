@@ -19,4 +19,11 @@ public class astronautBehaviour : MonoBehaviour
             Destroy(gameObject);
         }
     }
+    
+    void OnTriggerEnter2D(Collider2D collider){
+        if(collider.name=="shoot_Orange(Clone)"){
+            Destroy(collider.gameObject);
+        }
+        Destroy(gameObject);
+    }
 }

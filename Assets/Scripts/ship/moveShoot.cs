@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class moveShoot : MonoBehaviour
 {
-	private Vector2 movement;
 	
 	private Vector3 rightTopCameraBorder;
 	private Vector3 leftBottomCameraBorder;
@@ -16,14 +15,15 @@ public class moveShoot : MonoBehaviour
 		// calcul des angles avec conversion du monde de la camera au monde du pixel pour 
 		leftBottomCameraBorder = Camera.main.ViewportToWorldPoint(new Vector3 (0,0,0));
 		rightTopCameraBorder = Camera.main.ViewportToWorldPoint(new Vector3 (1,1,0));
-		
-		movement = new Vector2(
-		10 ,
-		0 );
-		
-		GetComponent<Rigidbody2D> ().velocity = movement;
-        
+
     }
+
+	 public void setShoot(int x)
+	 {
+		 Debug.Log("inverseShoot");
+
+		 gameObject.GetComponent<Rigidbody2D> ().velocity = new Vector2(x , 0 );;
+	 }
 
     // Update is called once per frame
     void Update()
@@ -35,15 +35,4 @@ public class moveShoot : MonoBehaviour
 		}
         
     }
-	public void OnDestroy()
-    {
-					
-    }
-	
-	void OnTriggerEnter2D(Collider2D collider){
-		if(collider.name=="astronaut(Clone)"){
-			Destroy(collider.gameObject);
-		}
-		Destroy(gameObject);
-	}
 }

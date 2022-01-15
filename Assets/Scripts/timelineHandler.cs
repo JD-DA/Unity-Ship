@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -6,8 +7,10 @@ public class timelineHandler : MonoBehaviour
 {
     public static timelineHandler Instance;
     private bool phase1 = true;
-    private bool phase2 = true;
+    private bool phase2 = false;
     private bool phase3 = true;
+    private bool firstTime = true; //on débloque les ennemis
+    private bool firstEnemyDestroyed = true;
     
     //indice de rareté, on va multiplier ce nombre par le fps pour générer avec une même cadence approximative selon l'appareil
     [System.NonSerialized]
@@ -16,16 +19,24 @@ public class timelineHandler : MonoBehaviour
     public int astronauts = 15;
     [System.NonSerialized]
     public float asteroids = 1f;
+    [System.NonSerialized]
+    public float ennemy = 25;
 
     //creation en cours des objets ?
-    public bool createAsteroids = true;
-    public bool createAstronauts = true;
+    [NonSerialized]
+    public bool createAsteroids = false;
+    [NonSerialized]
+    public bool createAstronauts =false;
+    [NonSerialized]
+    public bool createEnemy =false;
     
     //limite
     [System.NonSerialized]
     public int numAsteroid = 6;
     [System.NonSerialized]
     public int numBigAsteroid = 7;
+
+    private int enemyTime = 0;
     
     //vitesse
     [System.NonSerialized]
@@ -54,7 +65,7 @@ public class timelineHandler : MonoBehaviour
             asteroids = 0.6f;
             astronauts = 25;
         }
-        else if (phase2 && time > 45)
+        else if (phase2)
         {
             Debug.Log("phase 2 !");
             phase2 = false;
@@ -62,16 +73,38 @@ public class timelineHandler : MonoBehaviour
             numBigAsteroid = 14;
         }
 
-        if (time > 5 && time < 45 && (int) time != delta)
+        if (time > 5 && time < 35 && (int) time != delta)
         {
             speed += new Vector2(-0.1f, 0);
             delta = (int) time;
         }
+
+        if (time > 25 && firstTime)
+        {
+            Debug.Log("Enemy time !");
+            createEnemy = true;
+            firstTime = false;
+        }
         
-        if (time > 100 && time < 200 && (int) time != delta)
+        if (time > 100 && time < 200+enemyTime && (int) time != delta && createEnemy)
         {
             speed += new Vector2(-0.02f, 0);
             delta = (int) time;
         }
+        else
+        {
+            enemyTime++;
+        }
+    }
+
+    public void ennemyDestroyed()
+    {
+        if (firstEnemyDestroyed)
+        {
+            firstEnemyDestroyed = false;
+            phase2 = true;
+        }
+
+        createEnemy = true;
     }
 }
