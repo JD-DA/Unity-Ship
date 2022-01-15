@@ -39,7 +39,7 @@ public class asteroidBehaviour : MonoBehaviour
             transform.position.z);
         if (collider.name == "shoot_Orange(Clone)")
         {
-            Debug.Log(collider.name);
+            //Debug.Log(collider.name);
             gameObject.AddComponent<fadeOutFast>();
                 GameObject gY = Instantiate(Resources.Load("explosion"), tmpPos, Quaternion.identity) as GameObject;
                 gameState.Instance.addScorePlayer(score);
