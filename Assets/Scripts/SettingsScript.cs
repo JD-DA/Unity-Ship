@@ -48,7 +48,7 @@ public class SettingsScript : MonoBehaviour
     public void gotoCredits()
     {
         soundState.Instance.buttonTouchedd();
-        SceneManager.LoadScene("titlescreen");
+        SceneManager.LoadScene("creditScreen");
     }
 
     public void reset()

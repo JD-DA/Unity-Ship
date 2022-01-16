@@ -2357,6 +2357,7 @@ GameObject:
   - component: {fileID: 1291283939}
   - component: {fileID: 1291283938}
   - component: {fileID: 1291283937}
+  - component: {fileID: 1291283940}
   m_Layer: 0
   m_Name: Asteroids_1
   m_TagString: Untagged
@@ -2456,6 +2457,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1291283940
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1291283936}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ad96034a1d4b411fb7117b7895b71de8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1299444812
 GameObject:
   m_ObjectHideFlags: 0
