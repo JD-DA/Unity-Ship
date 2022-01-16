@@ -15,7 +15,6 @@ public class SettingsScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        musicToggle = GameObject.FindGameObjectWithTag("asteroid").GetComponent<Toggle>() ;
         soundToggle = GameObject.FindGameObjectWithTag("ship").GetComponent<Toggle>();
         var soundPlaying = PlayerPrefs.GetInt("playSounds", 1);
         Debug.Log($"Start sound : ${soundPlaying}");
