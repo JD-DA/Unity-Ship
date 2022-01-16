@@ -20,11 +20,13 @@ public class statSceneScript : MonoBehaviour
 
     public void goToMenu()
     {
+        soundState.Instance.buttonTouchedd();
         SceneManager.LoadScene("titlescreen");
     }
     
     public void reset()
     {
+        soundState.Instance.buttonTouchedd();
         PlayerPrefs.SetInt("NumAsteroidsDestroyed", 0);
         PlayerPrefs.SetInt("NumAstronautsSaved", 0);
         PlayerPrefs.SetInt("BestScore", 0);

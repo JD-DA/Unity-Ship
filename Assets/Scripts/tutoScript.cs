@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.U2D;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -10,6 +11,8 @@ public class tutoScript : MonoBehaviour
     private GameObject keyTuto;
 
     private GameObject music;
+
+    private GameObject sounds;
     // Start is called before the first frame update
     void Start()
     {
@@ -17,11 +20,13 @@ public class tutoScript : MonoBehaviour
         keyTuto = GameObject.FindGameObjectWithTag("ship");
         touchTuto.SetActive(false);
         music = GameObject.Find("musicTitle");
+        sounds = GameObject.FindGameObjectWithTag("sounds");
     }
 
     public void switchToKey()
     {
         soundState.Instance.buttonTouchedd();
+        Debug.Log("switchToKey");
         touchTuto.SetActive(false);
         keyTuto.SetActive(true);
     }
@@ -44,5 +49,6 @@ public class tutoScript : MonoBehaviour
         soundState.Instance.buttonTouchedd();
         SceneManager.LoadScene("InfinitePlay");
         Destroy(music);
+        Destroy(sounds);
     }
 }

@@ -15,7 +15,6 @@ public class patrol : MonoBehaviour
 
     private Vector3 top;
     private Vector3 bottom;
-    private bool goTop;
 
     private Camera cam;
     private Vector3 siz;
@@ -37,7 +36,6 @@ public class patrol : MonoBehaviour
         rightBottomCameraBorder = cam.ViewportToWorldPoint(new Vector3(1, 0, 0));
         leftTopCameraBorder = cam.ViewportToWorldPoint(new Vector3(0, 1, 0));
         targetPosition = top;
-        goTop = true;
         siz = gameObject.GetComponent<SpriteRenderer>().bounds.size;
     }
 

@@ -9,16 +9,24 @@ public class soundState : MonoBehaviour
 	public AudioClip menuSelectSound;
 
 	public AudioClip shipHit;
+
+	private bool makeSounds = true;
     // Start is called before the first frame update
     void Start()
     {
 	    if(Instance == null){
 		    Instance = this;
-		    //DontDestroyOnLoad(Instance.gameObject);
 	    }else if (this != Instance){
 		    //Debug.Log("Detruit");
 		    Destroy(this.gameObject);
 	    }
+	    
+	    var sounds = PlayerPrefs.GetInt("playSounds",1);
+	    if (sounds == 0)
+	    {
+		    makeSounds = false;
+	    }
+	    Debug.Log($"make sounds is ${makeSounds} (${sounds})");
     }
 
     // Update is called once per frame
@@ -39,6 +47,13 @@ public class soundState : MonoBehaviour
 	}
 	
 	private void MakeSound(AudioClip originalClip){
+		Debug.Log($"makeSounds ${makeSounds}");
+		if(makeSounds)
 		AudioSource.PlayClipAtPoint(originalClip,transform.position);
+	}
+
+	public void setMakeSounds(bool val)
+	{
+		makeSounds = val;
 	}
 }

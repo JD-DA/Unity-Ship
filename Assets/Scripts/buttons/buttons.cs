@@ -25,12 +25,14 @@ public class buttons : MonoBehaviour
 
     public void pauseGame()
     {
+        soundState.Instance.buttonTouchedd();
         Time.timeScale = 0;
         GameObject.Find("battleMusic").GetComponent<AudioSource>().Pause();
         showPaused();
     }
     public void playGame()
     {
+        soundState.Instance.buttonTouchedd();
         Time.timeScale = 1;
         GameObject.Find("battleMusic").GetComponent<AudioSource>().Play();
         hidePaused();
@@ -51,6 +53,7 @@ public class buttons : MonoBehaviour
 
     public void goToMenu()
     {
+        soundState.Instance.buttonTouchedd();
         Time.timeScale = 1;
         /*gameState.Instance.autodestruction();
         Destroy(gameState.Instance);
@@ -60,6 +63,7 @@ public class buttons : MonoBehaviour
     
     public void resetGame()
     {
+        soundState.Instance.buttonTouchedd();
         Time.timeScale = 1;
         gameState.Instance.resteScore();
         SceneManager.LoadScene("InfinitePlay");

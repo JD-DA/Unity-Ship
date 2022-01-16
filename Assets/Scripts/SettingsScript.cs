@@ -11,11 +11,27 @@ public class SettingsScript : MonoBehaviour
 
     private Toggle soundToggle;
 
+    private bool active = false;
     // Start is called before the first frame update
     void Start()
     {
-        musicToggle = .FindGameObjectWithTag("asteroid") ;
-        soundToggle = GameObject.FindGameObjectWithTag("ship");
+        musicToggle = GameObject.FindGameObjectWithTag("asteroid").GetComponent<Toggle>() ;
+        soundToggle = GameObject.FindGameObjectWithTag("ship").GetComponent<Toggle>();
+        var soundPlaying = PlayerPrefs.GetInt("playSounds", 1);
+        Debug.Log($"Start sound : ${soundPlaying}");
+
+        if (soundPlaying == 1)
+        {
+            soundToggle.isOn = true;
+            soundState.Instance.setMakeSounds(true);
+        }
+        else
+        {
+            soundToggle.isOn = false;
+            soundState.Instance.setMakeSounds(false);
+        }
+
+        active = true;
     }
     
     public void gotoMenu()
@@ -37,29 +53,29 @@ public class SettingsScript : MonoBehaviour
 
     public void reset()
     {
+        soundState.Instance.buttonTouchedd();
         PlayerPrefs.DeleteAll();
+        Destroy(Camera.main.GetComponent<soundState>());
         PlayerPrefs.Save();
+        SceneManager.LoadScene("SettingsScreen");
     }
 
-    public void music(bool set)
-    {
-        if (set)
-        {
-            PlayerPrefs.SetInt("playMusicc",1);
-        }else
-            PlayerPrefs.SetInt("playMusicc",0);
-        PlayerPrefs.Save();
-        
-    }
+    
     public void sounds(bool set)
     {
-        if (set)
+        if(active)
         {
-            PlayerPrefs.SetInt("playSounds",1);
-        }else
-            PlayerPrefs.SetInt("playSounds",0);
-        PlayerPrefs.Save();
-        SceneManager.LoadScene("titlescreen");
-        
+            if (set)
+            {
+                PlayerPrefs.SetInt("playSounds", 1);
+            }
+            else
+                PlayerPrefs.SetInt("playSounds", 0);
+            Debug.Log($"sounds : ${set}");
+            PlayerPrefs.Save();
+            soundState.Instance.setMakeSounds(set);
+            SceneManager.LoadScene("SettingsScreen");
+            
+        }
     }
 }
